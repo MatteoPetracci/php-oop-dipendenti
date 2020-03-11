@@ -2,17 +2,22 @@
 
 class Dipendente
 {
-  public $dipendenteid; // (int)
-  public $nomeCognome; // (stringa)
-  public $cf; // (stringa)
-  public $ruolo; // (int)
+  private $dipendenteid; // (int)
+  private $nomeCognome; // (stringa)
+  private $cf; // (stringa)
+  private $ruolo; // (int)
   public $salario; // (int)
   public $anniAnzianità; // (int)
   public $tipoContratto; // (int)
 
 function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo)
   {
-    $this->dipendenteId = $_dipendenteId;
+    if (empty($_dipendenteId)) {
+      throw new Exception('ID non inserito correttamente'); //throw al posto di die
+    }
+    else {
+      $this->dipendenteId = $_dipendenteId;
+    }
     $this->nomeCognome = $_nomeCognome;
     $this->cf = $_cf;
     $this->ruolo = $_ruolo;
