@@ -6,6 +6,7 @@ class Dipendente
   private $nomeCognome; // (stringa)
   private $cf; // (stringa)
   private $ruolo; // (int)
+  private $euroGiorno; // (int)
   public $salario; // (int)
   public $anniAnzianità; // (int)
   public $tipoContratto; // (int)
@@ -38,10 +39,5 @@ function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo)
     }
   }
 }
-
-  $dipendente1 = new Dipendente(1,'Paolo Rossi','PRNCM45LKSM56','Grafico');
-  var_dump($dipendente1);
-  $dipendente1->anniAnzianità = 4;
-  var_dump($dipendente1);
 
 ?>
