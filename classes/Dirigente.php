@@ -3,9 +3,9 @@
   class Dirigente extends Dipendente
   {
     public $bonus;
-    public function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo, $_oreEstero)
+    public function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo,$_accesso, $_oreEstero)
     {
-      parent::__construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo);
+      parent::__construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo,$_accesso);
       $this->oreEstero = $_oreEstero;
     }
     public function setExtra($_oreEstero) {

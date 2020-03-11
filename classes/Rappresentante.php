@@ -4,18 +4,14 @@
   class Rappresentante extends Dipendente
   {
     public $prodottiVenduti;
-    public function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo, $_prodottiVenduti)
+
+    public function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo,$_autorizzazione, $_prodottiVenduti)
     {
-      parent::__construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo);
-      if (!is_int($_prodottiVenduti)) {
-        throw new Exception('Non è un numero');
-      }
-      else {
+      parent::__construct($_dipendenteId, $_nomeCognome,$_cf, $_ruolo,$_autorizzazione);
+
         $this->prodottiVenduti = $_prodottiVenduti;
-      }
+      
     }
-
-
   }
 
 ?>

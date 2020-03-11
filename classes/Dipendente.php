@@ -1,7 +1,8 @@
 <?php
-
+include_once __DIR__ . '/../traits/Accesso.php';
 class Dipendente
 {
+  use Accesso;
   private $dipendenteid; // (int)
   private $nomeCognome; // (stringa)
   private $cf; // (stringa)
@@ -9,10 +10,16 @@ class Dipendente
   private $euroGiorno; // (int)
   public $anniAnzianità; // (int)
   public $tipoContratto;
-  public $stipendio;
+  private $stipendio;
 
-function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo)
+function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo,$_autorizzazione)
   {
+    if (!empty($_autorizzazione)) {
+      $this->getAccesso($_autorizzazione);
+    }
+    if ($this->accesso == false) {
+      throw new Exception('Error');
+    }
     if (empty($_dipendenteId)) {
       throw new Exception('ID non inserito correttamente'); //throw al posto di die
     }
@@ -31,12 +38,7 @@ function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo)
     else {
       $this->cf = $_cf;
     }
-    if (empty($_ruolo)) {
-      throw new Exception('Ruolo non inserito correttamente');
-    }
-    else {
-      $this->ruolo = $_ruolo;
-    }
+    $this->ruolo = $_ruolo;
   }
   public function getDati() {
     $results = [
@@ -57,6 +59,16 @@ function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo)
     }
   public function getStipendio() {
     return $this->stipendio;
+  }
+  public function setRuolo($_ruolo) {
+    if (empty($_ruolo)) {
+      throw new Exception("Error Processing Request");
+    } else {
+      return $this->ruolo = $_ruolo;
+    }
+  }
+  public function getRuolo() {
+    return $this->ruolo;
   }
 
 }
