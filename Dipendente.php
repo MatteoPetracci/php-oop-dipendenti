@@ -18,9 +18,24 @@ function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo)
     else {
       $this->dipendenteId = $_dipendenteId;
     }
-    $this->nomeCognome = $_nomeCognome;
-    $this->cf = $_cf;
-    $this->ruolo = $_ruolo;
+    if (empty($_nomeCognome)) {
+      throw new Exception('Nome e Cognome non inserito correttamente');
+    }
+    else {
+      $this->nomeCognome = $_nomeCognome;
+    }
+    if (empty($_cf)) {
+      throw new Exception('CF non inserito correttamente');
+    }
+    else {
+      $this->cf = $_cf;
+    }
+    if (empty($_ruolo)) {
+      throw new Exception('Ruolo non inserito correttamente');
+    }
+    else {
+      $this->ruolo = $_ruolo;
+    }
   }
 }
 
