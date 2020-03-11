@@ -49,6 +49,5 @@ function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo)
   }
 
 }
-var_dump($results);
 
 ?>
