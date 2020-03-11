@@ -9,7 +9,7 @@ class Dipendente
   private $euroGiorno; // (int)
   public $salario; // (int)
   public $anniAnzianità; // (int)
-  public $tipoContratto; // (int)
+  public $tipoContratto;
 
 function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo)
   {
@@ -38,6 +38,17 @@ function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo)
       $this->ruolo = $_ruolo;
     }
   }
+  public function getDati() {
+    $results = [
+      'Id'=> $this->dipendenteId,
+      'Nome e Cognoome'=> $this->nomeCognome,
+      'Codice Fiscale'=> $this->cf,
+      'Ruolo'=> $this->ruolo,
+    ];
+    return $results;
+  }
+
 }
+var_dump($results);
 
 ?>
