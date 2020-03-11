@@ -7,9 +7,9 @@ class Dipendente
   private $cf; // (stringa)
   private $ruolo; // (int)
   private $euroGiorno; // (int)
-  public $salario; // (int)
   public $anniAnzianità; // (int)
   public $tipoContratto;
+  public $stipendio;
 
 function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo)
   {
@@ -46,6 +46,17 @@ function __construct($_dipendenteId, $_nomeCognome, $_cf, $_ruolo)
       'Ruolo'=> $this->ruolo,
     ];
     return $results;
+  }
+  public function setStipendio($_stipendio)
+    {
+      if (empty($_stipendio)) {
+        throw new Exception('Errore inserimento dati');
+      } else {
+        $this->stipendio = $_stipendio;
+      }
+    }
+  public function getStipendio() {
+    return $this->stipendio;
   }
 
 }
